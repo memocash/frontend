@@ -1,0 +1,11 @@
+{{ if not . }}
+<h3>Not Following Anyone Yet</h3>
+{{ else }}
+<h3>Following</h3>
+{{ end }}
+
+{{ range . }}
+<p>
+    <a class="btn" href="/profile/{{ .GetAddressString }}">{{ .Name }} ({{ .GetAddressString }})</a>
+</p>
+{{ end }}

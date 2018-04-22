@@ -1,0 +1,22 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Need Funds</h2>
+
+<p>
+    In order to perform actions you need Bitcoin Cash to pay for the transactions.
+</p>
+
+<p>
+    Please send some BCH to your address: <b>{{ .Key.GetAddress.GetEncoded }}</b>
+</p>
+
+<p>
+    You don't need much to begin, actions cost less than one cent each.
+</p>
+
+<p>
+    If you don't have any BCH, try visiting a faucet like
+    <a href="https://free.bitcoin.com/" target="_blank">free.bitcoin.com/</a>.
+</p>
+
+{{ template "snippets/footer.html" . }}

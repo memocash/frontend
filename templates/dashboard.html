@@ -1,0 +1,23 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Dashboard</h2>
+
+{{ template "snippets/profile.html" .Profile }}
+
+<p>
+    <a class="btn" href="profile/{{ .Profile.GetAddressString }}">View Your Profile</a>
+    <a class="btn" href="memo/new">New Memo</a>
+    <a class="btn" href="memo/set-name">Set Name</a>
+    <a class="btn" href="key/export">Export Key</a>
+    <a class="btn" href="key/change-password">Change Password</a>
+</p>
+
+{{ if not .Posts }}
+<h3>Feed Empty</h3>
+<p>Start following others to see their posts here</p>
+{{ else }}
+<h3>Feed</h3>
+{{ template "snippets/feed.html" . }}
+{{ end }}
+
+{{ template "snippets/footer.html" . }}

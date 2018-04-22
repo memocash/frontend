@@ -1,0 +1,32 @@
+<div class="post">
+    <p class="name">
+        <a href="profile/{{ .Post.Memo.GetAddressString }}">{{ $len := len .Post.Name }}{{ if gt $len 0 -}}
+            {{ .Post.Name }}
+        {{- else -}}
+            {{ .Post.Memo.GetAddressString }}
+        {{- end }}</a>
+        posted at
+        <a href="post/{{ .Post.Memo.GetTransactionHashString }}">{{ .Post.Memo.GetTimeString }}</a>
+    </p>
+    <p class="message">
+    {{ .Post.GetMessage }}
+    </p>
+    <p class="likes">
+        <i>
+            <a href="post/{{ .Post.Memo.GetTransactionHashString }}">{{ len .Post.Likes }} likes</a>
+        {{ if .Post.Likes }}
+            (tip: {{ formatBigInt .Post.GetTotalTip }} satoshis)
+        {{ end }}
+        </i>
+    </p>
+{{ if not .Compress }}
+    <p class="actions">
+    {{ if .Post.IsLikable }}
+        <a class="btn" href="memo/like/{{ .Post.Memo.GetTransactionHashString }}">Like Memo</a>
+    {{ end }}
+        <a class="btn btn-leave" target="_blank"
+           href="https://explorer.bitcoin.com/bch/tx/{{ .Post.Memo.GetTransactionHashString }}">
+            View Memo on Block Explorer</a>
+    </p>
+{{ end }}
+</div>

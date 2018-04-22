@@ -1,0 +1,17 @@
+{{ template "snippets/header.html" . }}
+
+<h2>New Posts</h2>
+
+<p>
+    <a class="btn" href="new-posts?offset={{ .PrevOffset }}">Prev</a>
+    <a class="btn" href="new-posts?offset={{ .NextOffset }}">Next</a>
+</p>
+
+{{ template "snippets/posts.html" .Posts }}
+
+<p>
+    <a class="btn" href="new-posts?offset={{ .PrevOffset }}">Prev</a>
+    <a class="btn" href="new-posts?offset={{ .NextOffset }}">Next</a>
+</p>
+
+{{ template "snippets/footer.html" . }}

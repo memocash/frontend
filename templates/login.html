@@ -1,0 +1,27 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Login</h2>
+
+<form id="form-login" method="post">
+    <p>
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" class="form-control" placeholder="Username" autocomplete="on"
+               required autofocus>
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" class="form-control" placeholder="Password"
+               autocomplete="on" required>
+    </p>
+    <p>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+    </p>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        MemoApp.Form.Login($("#form-login"));
+    });
+</script>
+
+{{ template "snippets/footer.html" . }}

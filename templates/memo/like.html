@@ -1,0 +1,31 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Like Memo</h2>
+
+{{ template "snippets/post.html" dict "Post" .Post "Compress" true }}
+
+<form id="form-memo-like" method="post">
+    <p>
+        <input id="tx-hash" type="hidden" name="tx-hash" value="{{ .Post.Memo.GetTransactionHashString }}"/>
+    </p>
+    <p>
+        <label for="tip">Optional tip (min. 546)</label>
+        <input id="tip" type="text" name="tip" class="form-control" placeholder="0">
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" class="form-control" placeholder="Password"
+               autocomplete="on" required>
+    </p>
+    <p>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Like">
+    </p>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        MemoApp.Form.Like($("#form-memo-like"));
+    });
+</script>
+
+{{ template "snippets/footer.html" . }}

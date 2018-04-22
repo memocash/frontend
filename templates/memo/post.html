@@ -1,0 +1,26 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Memo</h2>
+
+{{ template "snippets/post.html" dict "Post" .Post "Compress" false }}
+
+{{ if .Post.Likes }}
+<h3>Likes</h3>
+
+<ul>
+{{ range .Post.Likes }}
+<li>
+    Liked by <a href="profile/{{ .GetAddressString }}">{{ $len := len .Name }}{{ if gt $len 0 -}}
+            {{ .Name }}
+        {{- else -}}
+            {{ .GetAddressString }}
+        {{- end }}</a> - {{ formatBigInt .Amount }} satoshis
+    ({{ .GetTimeString }})
+    <a target="_blank"
+       href="https://explorer.bitcoin.com/bch/tx/{{ .GetTransactionHashString }}">View on Block Explorer</a>
+</li>
+{{ end }}
+</ul>
+{{ end }}
+
+{{ template "snippets/footer.html" . }}

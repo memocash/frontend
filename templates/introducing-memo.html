@@ -1,0 +1,52 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Introducing Memo</h2>
+
+<p>
+    I'm happy to announce the launch of Memo, an on-chain social network built on Bitcoin Cash.
+</p>
+
+<p>
+    Memo is both a protocol and a front-end application.
+    The protocol works by writing transactions to the Bitcoin Cash blockchain.
+    Client applications can read these transactions to see the activity on the network.
+</p>
+
+<p>
+    With current social networks, users do not control their data and can have their accounts removed without reason.
+    The blockchain is more than an uncensorable way to send money, it's an uncensorable way to store data.
+    Memo is an experiment leveraging the blockchain's data storing capabilities.
+</p>
+
+<p>
+    Each action is stored on the blockchain in an OP_RETURN transaction -
+    whether it's posting a memo, following someone, or liking a post.
+    You can also include a tip (it is on-chain after all).
+    <a href="protocol">Additional actions</a> are intended to be added later.
+</p>
+
+<a href="memo-protocol-visual.png" target="_blank">
+    <img src="memo-protocol-visual.png" style="border:1px solid black; max-width:450px;"/>
+</a>
+
+<p>
+    This website is a front-end application built on top of the protocol.
+    An open-source client is planned to be released later.
+</p>
+
+<p>
+    <a href="/signup">Sign up</a> for an account to check it out.
+    Try importing your private key into a local wallet (e.g. Electron Cash) to see your transactions.
+</p>
+
+<p>
+    Have feedback?
+    Post a memo about it!
+    You can also send me an email <a href="mailto:mail@jasonc.me">mail@jasonc.me</a>,
+    message me on Twitter
+    <a target="_blank" href="https://twitter.com/memobch">@memobch</a>,
+    or chat me on Slack (btcchat or bchchat).
+    Also, here's the official <a href="https://memo.cash/profile/1F5GrRezwGokQhxmF4fYaBbbNrPPaeBqMm">memo account</a>.
+</p>
+
+{{ template "snippets/footer.html" . }}

@@ -1,0 +1,33 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Profile</h2>
+
+{{ template "snippets/profile.html" .Profile }}
+
+{{ if not .Posts }}
+<h3>No Posts Yet</h3>
+{{ else }}
+<h3>Posts</h3>
+{{ end }}
+
+{{ template "snippets/posts.html" .Posts }}
+
+{{ if .Likes }}
+<h3>Likes</h3>
+
+<ul>
+{{ range .Likes }}
+    <li>
+        Liked <a href="post/{{ .GetPostTransactionHashString }}">{{ .Name }}'s post</a>
+        - {{ formatBigInt .Amount }} satoshis
+        ({{ .GetTimeString }})
+        <a target="_blank"
+           href="https://explorer.bitcoin.com/bch/tx/{{ .GetTransactionHashString }}">View on Block Explorer</a>
+    </li>
+{{ end }}
+</ul>
+{{ else }}
+<h3>This User Hasn't Liked Anything Yet</h3>
+{{ end }}
+
+{{ template "snippets/footer.html" . }}

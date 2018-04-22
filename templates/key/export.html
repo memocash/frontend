@@ -1,0 +1,19 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Export Key</h2>
+
+<div id="private-key">
+    <form id="key-password-form" method="post">
+        <label for="key-password">Key Password:</label>
+        <input autocomplete="new-password" type="password" name="password" id="key-password"/>
+        <input class="btn" type="submit" value="Unlock"/>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        MemoApp.Form.LoadKey({{ .Key.Id }}, $("#key-password-form"), $("#private-key"));
+    });
+</script>
+
+{{ template "snippets/footer.html" . }}

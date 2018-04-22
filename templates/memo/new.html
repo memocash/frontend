@@ -1,0 +1,27 @@
+{{ template "snippets/header.html" . }}
+
+<h2>New Memo</h2>
+
+<form id="form-new-memo" method="post">
+    <p>
+        <label for="message">Message</label>
+        <textarea id="message" type="text" name="message" class="form-control" placeholder="Message" autocomplete="on"
+                  required autofocus maxlength="75"></textarea>
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" class="form-control" placeholder="Password"
+               autocomplete="on" required>
+    </p>
+    <p>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Post">
+    </p>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        MemoApp.Form.NewMemo($("#form-new-memo"));
+    });
+</script>
+
+{{ template "snippets/footer.html" . }}

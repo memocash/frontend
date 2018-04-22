@@ -1,0 +1,37 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Profiles</h2>
+
+<form>
+    <label for="profile-search">
+        Search:
+    </label>
+    <input id="profile-search" type="text" placeholder="Enter username"/>
+</form>
+
+<div id="profile-list">
+{{ range .Profiles }}
+{{ if .NameSet }}
+    <p data-address="{{ .Name }} {{ .GetAddressString }}">
+        <a class="btn" href="/profile/{{ .GetAddressString }}">{{ .Name }} ({{ .GetAddressString }})</a>
+    </p>
+{{ else }}
+    <p data-address="{{ .GetAddressString }}">
+        <a class="btn" href="/profile/{{ .GetAddressString }}">{{ .GetAddressString }}</a>
+    </p>
+{{ end }}
+{{ end }}
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#profile-search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#profile-list p").filter(function () {
+                $(this).toggle($(this).attr("data-address").toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+{{ template "snippets/footer.html" . }}

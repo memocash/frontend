@@ -1,0 +1,148 @@
+body {
+    overflow-y: scroll;
+    text-size-adjust: 250%;
+    -webkit-text-size-adjust: 250%;
+    /* Fix for text-size-adjust being ignored: https://bugs.webkit.org/show_bug.cgi?id=FontBoosting */
+    max-height: 1000000px;
+}
+html {
+    font-family: sans-serif;
+}
+
+a {
+    color: #005;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+h1 a {
+    text-decoration: none;
+    color: #000;
+}
+h1 a img {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 40px;
+    height: 40px;
+}
+
+input, textarea, select {
+    padding: 5px 7px;
+    border: 1px solid #000;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+input[type=text],
+input[type=password] {
+    min-width: 350px;
+    border-radius: 8px;
+}
+
+textarea {
+    font-family: sans-serif;
+    min-width: 350px;
+    min-height: 70px;
+    border-radius: 8px;
+}
+
+label {
+    display: inline-block;
+    min-width: 175px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+span.inline {
+    display: inline-block;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+select {
+    min-width: 150px;
+}
+
+table.table,
+table.table th,
+table.table td {
+    border-collapse: collapse;
+    border: 0;
+    border-radius: 8px;
+}
+
+table.table tbody tr:nth-child(2n-1) {
+    background: rgba(0, 0, 0, 0.075);
+}
+table.table th,
+table.table td {
+    padding: 5px 7px;
+    height: 38px;
+}
+table.sortable td.bars span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 3px 0;
+    background: #444;
+}
+table.sortable td.bars:hover {
+    cursor: ns-resize;
+}
+table.inline {
+    display: inline;
+    border: none;
+}
+table.left th {
+    text-align: left;
+}
+
+a.btn, input[type=submit].btn {
+    display: inline-block;
+    padding: 5px 7px;
+    border: 1px solid #000;
+    font-size: 14px;
+    text-decoration: none;
+    background: rgba(84,141,29,0.2);
+    border-radius: 8px;
+}
+a.btn-leave {
+    background: rgba(0,0,0,0.2);
+}
+
+.header h1 {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 10px 0 0;
+}
+.header .nav {
+    display: inline-block;
+}
+
+.post {
+    border: 2px solid rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    padding: 1px 10px;
+    max-width: 600px;
+    margin: 12px 0;
+    border-radius: 15px;
+    background: rgba(84,141,29,0.2);
+    word-wrap: break-word;
+}
+.post .name {
+    margin: 10px 0;
+}
+.post .message {
+    margin: 12px 0;
+    font-size: 32px;
+}
+.post .likes {
+    margin: 10px 0;
+}
+.post .actions {
+    margin: 10px 0;
+}

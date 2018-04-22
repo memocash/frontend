@@ -1,0 +1,22 @@
+{{ template "snippets/header.html" . }}
+
+<h2>
+    <a href="profile/{{ .Profile.GetAddressString }}">
+        Profile - {{ .Profile.Name }}
+    </a>
+</h2>
+
+{{ if not .Profile.Followers }}
+<h3>No Followers Yet</h3>
+{{ else }}
+<h3>Followers</h3>
+{{ end }}
+
+{{ range .Profile.Followers }}
+<p>
+    <a class="btn" href="/profile/{{ .GetAddressString }}">{{ .Name }} ({{ .GetAddressString }})</a>
+</p>
+{{ end }}
+
+
+{{ template "snippets/footer.html" . }}

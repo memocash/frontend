@@ -1,0 +1,25 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Unfollow {{ .Profile.Name }}</h2>
+
+<form id="form-memo-unfollow" method="post">
+    <p>
+        <input id="address" type="hidden" name="address" value="{{ .Profile.GetAddressString }}"/>
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" class="form-control" placeholder="Password"
+               autocomplete="on" required>
+    </p>
+    <p>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Unfollow">
+    </p>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        MemoApp.Form.Unfollow($("#form-memo-unfollow"));
+    });
+</script>
+
+{{ template "snippets/footer.html" . }}

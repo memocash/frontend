@@ -1,0 +1,158 @@
+{{ template "snippets/header.html" . }}
+
+<h2>Protocol</h2>
+
+<p>
+    Protocol uses P2PKH addresses.
+    Actions are saved using <b>OP_RETURN</b>.
+</p>
+
+<p>
+    Message data is UTF-8 encoded. For example, this action would set your name to "memo":
+</p>
+
+<pre style="font-family:monospace">OP_RETURN 6d01 6d656d6f</pre>
+
+<h3>Action Codes</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Action</th>
+        <th>Prefix</th>
+        <th>Values</th>
+        <th>Status</th>
+        <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Set name</td>
+        <td>0x6d01</td>
+        <td>name(76)</td>
+        <td>Implemented</td>
+        <td>
+            <a class="btn btn-leave" target="_blank"
+               href="https://explorer.bitcoin.com/bch/tx/753e29e81cdea12dc5fa30ca89049ca7d538d4062c4bb1b19ecf2a209a3ac8d9">
+                Block Explorer
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>Post memo</td>
+        <td>0x6d02</td>
+        <td>message(76)</td>
+        <td>Implemented</td>
+        <td>
+            <a class="btn btn-leave" target="_blank"
+               href="https://explorer.bitcoin.com/bch/tx/c7e91099923a28cf86685c9683c74c8c029c8965a5039f84ad79886b42720f9b">
+                Block Explorer
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>Reply to memo</td>
+        <td>0x6d03</td>
+        <td>txhash(20), message(53)</td>
+        <td>Planned</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Like / tip memo</td>
+        <td>0x6d04</td>
+        <td>txhash(20)</td>
+        <td>Implemented</td>
+        <td>
+            <a class="btn btn-leave" target="_blank"
+               href="https://explorer.bitcoin.com/bch/tx/b7b9376659920ecbaad794bfb1cd0a5da095f9231fe1f4243474c9606623fc14">
+                Block Explorer
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>Set profile text</td>
+        <td>0x6d05</td>
+        <td>message(76)</td>
+        <td>Planned</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Follow user</td>
+        <td>0x6d06</td>
+        <td>address(35)</td>
+        <td>Implemented</td>
+        <td>
+            <a class="btn btn-leave" target="_blank"
+               href="https://explorer.bitcoin.com/bch/tx/7958e54680a4ed01316ce99489f54c26234060c0a18d5ffc4d4d44182e1a2891">
+                Block Explorer
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>Unfollow user</td>
+        <td>0x6d07</td>
+        <td>address(35)</td>
+        <td>Implemented</td>
+        <td>
+            <a class="btn btn-leave" target="_blank"
+               href="https://explorer.bitcoin.com/bch/tx/a9987c7643a3d5a033b2630cf7e3603385b7ab6ec7b6be690f37b9a58c780acd">
+                Block Explorer
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>Set image base url</td>
+        <td>0x6d08</td>
+        <td>url(76)</td>
+        <td>Planned</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Attach picture</td>
+        <td>0x6d09</td>
+        <td>txhash(20), imghash(20), url(34)</td>
+        <td>Planned</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Set profile picture</td>
+        <td>0x6d10</td>
+        <td>imghash(16), url(61)</td>
+        <td>Planned</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Repost memo</td>
+        <td>0x6d11</td>
+        <td>txhash(20), message(63)</td>
+        <td>Planned</td>
+        <td></td>
+    </tr>
+    <!--
+    <tr>
+        <td>Testing</td>
+        <td>0x6d00</td>
+        <td>data(76)</td>
+        <td></td>
+        <td></td>
+    </tr>
+    -->
+    </tbody>
+</table>
+
+<p>
+    Additional actions being considered:
+</p>
+
+<ul>
+    <li>Tagging users in posts</li>
+    <li>Voting</li>
+    <li>Issue and revoke delegated addresses</li>
+    <li>Dislike and/or flag posts/users</li>
+</ul>
+
+<p>
+    <b>Note:</b> Actions that have not been implemented are subject to change.
+</p>
+
+{{ template "snippets/footer.html" . }}

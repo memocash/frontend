@@ -1,0 +1,20 @@
+<table class="table left">
+    <tr>
+        <th>WIF (base58)</th>
+        <td>{{ .PrivateKey.GetBase58 }}</td>
+    </tr>
+    <tr>
+        <th>WIF Compressed (base58)</th>
+        <td>{{ .PrivateKey.GetBase58Compressed }}</td>
+    </tr>
+    <tr>
+        <th>Raw Key (hex)</th>
+        <td>{{ .PrivateKey.GetHex }}</td>
+    </tr>
+    <tr>
+        <th>Raw Key (binary)</th>
+        <td>
+            <pre style="max-width:400px; overflow-x:scroll">{{ .PrivateKey.GetBinaryString }}</pre>
+        </td>
+    </tr>
+</table>

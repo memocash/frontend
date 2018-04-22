@@ -1,0 +1,25 @@
+<p>
+{{ if not (eq .Offset 0) }}
+    <a class="btn" href="feed?offset={{ .PrevOffset }}">Prev</a>
+{{ end }}
+{{ if eq .PostCount 25 }}
+    <a class="btn" href="feed?offset={{ .NextOffset }}">Next</a>
+{{ end }}
+</p>
+
+{{ template "snippets/posts.html" .Posts }}
+
+<p>
+{{ if not (eq .Offset 0) }}
+    <a class="btn" href="feed?offset={{ .PrevOffset }}">Prev</a>
+{{ end }}
+{{ if eq .PostCount 25 }}
+    <a class="btn" href="feed?offset={{ .NextOffset }}">Next</a>
+{{ end }}
+</p>
+
+{{ if eq .Profile.Balance 0 }}
+<p>
+    Send yourself some BCH to start posting.
+</p>
+{{ end }}

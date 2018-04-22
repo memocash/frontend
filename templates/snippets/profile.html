@@ -1,0 +1,73 @@
+<table class="table left">
+    <tr>
+        <th>Name</th>
+        <td>{{ .Name }}</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>
+            <a href="#" id="qr-code-link">{{ .GetCashAddressString }}</a>
+            <div id="qr-code">
+                <img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl={{ .GetCashAddressString }}&choe=UTF-8"/>
+                <br/>
+            {{ .GetAddressString }}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Followers</th>
+        <td>
+            <a href="profile/followers/{{ .GetAddressString }}">
+            {{ .FollowerCount }}
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <th>Following</th>
+        <td>
+            <a href="profile/following/{{ .GetAddressString }}">
+            {{ .FollowingCount }}
+            </a>
+        </td>
+    </tr>
+{{ if .HasBalance }}
+    <tr>
+        <th>Balance</th>
+        <td>{{ formatBigInt .Balance }} satoshis ({{ formatBigFloat .BalanceBCH }} BCH)</td>
+    </tr>
+{{ end }}
+    <tr>
+        <th>Actions</th>
+        <td>
+        {{ if .CanFollow }}
+            <a class="btn" href="memo/follow/{{ .GetAddressString }}">Follow {{ .Name }}</a>
+        {{ end }}
+        {{ if .CanUnFollow }}
+            <a class="btn" href="memo/unfollow/{{ .GetAddressString }}">Unfollow {{ .Name }}</a>
+        {{ end }}
+            <a class="btn btn-leave" target="_blank"
+               href="https://explorer.bitcoin.com/bch/address/{{ .GetAddressString }}">
+                View Address on Block Explorer
+            </a>
+        {{ if .NameSet }}
+            <a class="btn btn-leave" target="_blank"
+               href="https://explorer.bitcoin.com/bch/tx/{{ .GetNameTx }}">
+                View Name on Block Explorer
+            </a>
+        {{ end }}
+        </td>
+    </tr>
+</table>
+
+<style type="text/css">
+    #qr-code {
+        display: none;
+    }
+</style>
+
+<script type="text/javascript">
+    $("#qr-code-link").click(function (e) {
+        e.preventDefault();
+        $("#qr-code").toggle();
+    });
+</script>
