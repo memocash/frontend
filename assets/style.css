@@ -36,20 +36,23 @@ input, textarea, select {
 
 input[type=text],
 input[type=password] {
-    min-width: 350px;
+    width: 350px;
+    max-width: 100%;
     border-radius: 8px;
 }
 
 textarea {
     font-family: sans-serif;
-    min-width: 350px;
+    width: 350px;
+    max-width: 100%;
     min-height: 70px;
     border-radius: 8px;
 }
 
 label {
     display: inline-block;
-    min-width: 175px;
+    width: 175px;
+    max-width: 100%;
     vertical-align: top;
     cursor: pointer;
 }
@@ -64,7 +67,8 @@ input[type=submit]:hover {
 }
 
 select {
-    min-width: 150px;
+    width: 150px;
+    max-width: 100%;
 }
 
 table.table,
