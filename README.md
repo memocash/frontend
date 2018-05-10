@@ -1,3 +1,5 @@
-# Memo Frontend
+# This repo is DEPRECATED
 
-https://memo.cash
+Use the main memo repo
+
+https://github.com/memocash/memo
